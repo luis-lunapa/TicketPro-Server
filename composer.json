@@ -1,0 +1,12 @@
+{
+    "name": "luisluna/ticketspro",
+    "description": "Tickets administration system",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Luis G Luna",
+            "email": "luis.lunapa@outlook.com"
+        }
+    ],
+    "require": {}
+}
