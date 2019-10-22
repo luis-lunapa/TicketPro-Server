@@ -5,7 +5,7 @@ require_once('header.php');
 /*
 *	This service get all data of a ticket
 *
-*	Parámetros:
+*	Parameters:
 *    - id
  *   - personName
 
@@ -57,7 +57,7 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
     // Get only name ticket
     $nameTicket = $_GET['name'];
     $ticket = $db->querySelect(
-        "Get id ticket",
+        "Get name ticket",
         "SELECT
         t.id,
         t.name,
@@ -80,7 +80,7 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
 } else {
     // Get all tickets
     $tickets = $db->querySelect(
-        "Get id ticket",
+        "Get all tickets",
         "SELECT
         t.id,
         t.name,
