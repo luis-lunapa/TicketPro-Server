@@ -3,20 +3,18 @@
 
 require_once('include/header.php');
 /*
-*	This service determines if a ticket is valid
+*	This service get all data of a ticket
 *
 *	Parámetros:
-*    - idUsuario
+*    - id
+ *   - personName
 
 *
-*	Devuelve un JSON con {status, msg, data}
+*	Return JSON
 *
 *	Lista de status:
 *	- 0         No execution
 *	- 200 	    Success
-*	- 600       Datos faltantes o incorrectos del usuario
-*    - 601       No se recibio idUsuario
-*    - 604       Token no recibido o válido
 */
 
 header('Content-Type: application/json');
@@ -30,6 +28,23 @@ if (isset($_GET['debug'])) {
 
 $response = array();
 
+if (isset($_GET['id']) && trim($_GET['id']) != "") {
+    // Get only id ticket
+    $idTicket = $_GET['id'];
+    $ticket = $db->querySelect(
+        "Get id ticket",
+        "SELECT
+        t.id,
+        t.name,
+        t.photo,
+        t.arrived
+        FROM Ticket t
+        WHERE t.id = $idTicket
+        "
+
+    );
+}
+exit;
 if (!isset($_GET['id']) || trim($_GET['id']) == "") {
     /// Get all buses
     $allBuses = $db->querySelect(
