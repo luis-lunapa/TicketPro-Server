@@ -58,6 +58,8 @@ $session = $db->querySelect(
         "
 );
 
+$db->printQuery();
+
 $userId = '';
 $name = '';
 
