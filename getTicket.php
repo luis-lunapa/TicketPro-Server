@@ -43,7 +43,19 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         "
 
     );
+
+    while ($row = $ticket->fetch_assoc()) {
+        array_push($response, array(
+
+                'id' => $row['id'],
+                'name' => $row['name'],
+                'photo' => $row['photo'],
+                'arrived' => $row['arrived']
+            )
+        );
+    }
 }
+echo(json_encode($response));
 exit;
 if (!isset($_GET['id']) || trim($_GET['id']) == "") {
     /// Get all buses
