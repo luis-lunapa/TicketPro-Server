@@ -42,7 +42,6 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         WHERE t.id = $idTicket
         "
     );
-    $db->printQuery();
 
     while ($row = $ticket->fetch_assoc()) {
         array_push($response, array(
