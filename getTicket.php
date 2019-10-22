@@ -64,7 +64,7 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         t.photo,
         t.arrived
         FROM Ticket t
-        WHERE t.name = $nameTicket
+        WHERE t.name LIKE '$nameTicket'
         "
     );
 
