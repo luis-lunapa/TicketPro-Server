@@ -53,6 +53,30 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
             )
         );
     }
+} else if (isset($_GET['name']) && trim($_GET['name']) != "") {
+    // Get only name ticket
+    $nameTicket = $_GET['name'];
+    $ticket = $db->querySelect(
+        "Get id ticket",
+        "SELECT
+        t.id,
+        t.name,
+        t.photo,
+        t.arrived
+        FROM Ticket t
+        WHERE t.name = $nameTicket
+        "
+    );
+
+    while ($row = $ticket->fetch_assoc()) {
+        array_push($response, array(
+                'id' => $row['id'],
+                'name' => $row['name'],
+                'photo' => $row['photo'],
+                'arrived' => $row['arrived']
+            )
+        );
+    }
 }
 echo(json_encode($response));
 exit;
