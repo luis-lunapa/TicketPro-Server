@@ -43,6 +43,7 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         "
 
     );
+    $db->printQuery();
 
     while ($row = $ticket->fetch_assoc()) {
         array_push($response, array(
