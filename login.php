@@ -74,7 +74,7 @@ if ($row = $session->fetch_assoc()) {
 
 $newToken = md5(uniqid(rand(), true));
 /// Create session
-$db->queryInsert(
+$newSession = $db->queryInsert(
     "Creates a new session",
     array(
         "INSERT INTO Session
@@ -84,6 +84,17 @@ VALUES ($userId, '$newToken', 1)
 "
     )
 );
+
+if ($newSession) {
+    header("HTTP/1.1 200 OK");
+    $response['id'] = $userId;
+    $response['name'] = $name;
+    $response['token'] = $newToken;
+} else {
+    header("HTTP/1.1 500 Internal Server Error");
+    $response['msg'] = "Server cannot perform login requesr right now";
+    echo json_encode($response);
+}
 
 
 
