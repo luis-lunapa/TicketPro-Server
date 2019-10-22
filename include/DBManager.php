@@ -4,9 +4,9 @@ class DBManager {
     /// Parametros de conexión con base de datos
     ///==================================================
     
-    private $user = "u111876580_proj1"; // Usuario de bd
-    private $password = "Uu123456"; // Password bd
-    private $db = "u111876580_proje"; // Nombre db
+    private $user = "u111876580_tick"; // Usuario de bd
+    private $password = "Q?8sn;:["; // Password bd
+    private $db = "u111876580_Tickets"; // Nombre db
     private $host = "localhost"; // Host db
 
     ///==============================================
