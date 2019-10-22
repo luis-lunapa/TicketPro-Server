@@ -90,6 +90,7 @@ if ($newSession) {
     $response['id'] = $userId;
     $response['name'] = $name;
     $response['token'] = $newToken;
+    echo json_encode($response);
 } else {
     header("HTTP/1.1 500 Internal Server Error");
     $response['msg'] = "Server cannot perform login requesr right now";
