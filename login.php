@@ -44,6 +44,8 @@ if (!isset($_GET['password']) || trim($_GET['password']) == "") {
     echo json_encode($response);
     exit;
 
+} else {
+    $password = $_GET['password'];
 }
 
 
