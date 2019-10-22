@@ -77,6 +77,29 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
             )
         );
     }
+} else {
+    // Get all tickets
+    $tickets = $db->querySelect(
+        "Get id ticket",
+        "SELECT
+        t.id,
+        t.name,
+        t.photo,
+        t.arrived
+        FROM Ticket t
+
+        "
+    );
+
+    while ($row = $tickets->fetch_assoc()) {
+        array_push($response, array(
+                'id' => $row['id'],
+                'name' => $row['name'],
+                'photo' => $row['photo'],
+                'arrived' => $row['arrived']
+            )
+        );
+    }
 }
 echo(json_encode($response));
 exit;
