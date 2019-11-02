@@ -1,5 +1,15 @@
 <?php
 require_once('header.php');
+header('Content-Type: application/json');
+
+
+if (isset($_GET['debug'])) {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
+
+
 $data = json_validate(file_get_contents('php://input'));
 echo $data;
 foreach($data as $invitee) {
