@@ -22,7 +22,7 @@ foreach($data as $invitee) {
         array ("
             INSER INTO 
                 Ticket
-                (name, arrived, rawRepresentaion)
+                (name, arrived, rawRepresentation)
                 VALUES
                 ('$name', $arrived, '$rawRepresentation')
         ")
