@@ -93,7 +93,7 @@ if ($newSession) {
     echo json_encode($response);
 } else {
     header("HTTP/1.1 500 Internal Server Error");
-    $response['msg'] = "Server cannot perform login requesr right now";
+    $response['msg'] = "Server cannot perform login request right now";
     echo json_encode($response);
 }
 

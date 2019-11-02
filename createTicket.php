@@ -17,4 +17,9 @@ foreach($data as $invitee) {
                 ('$name', $arrived, '$rawRepresentation')
         ")
     );
+    if ($insertQuery) {
+        header("HTTP/1.1 200 OK");
+    } else {
+        header("HTTP/1.1 500 Internal Server Error");
+    }
 }
