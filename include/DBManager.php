@@ -112,17 +112,9 @@ class DBManager {
 
     }
 
-
-   
-
-    
     public function printQuery() {
         echo($this->query);
     }
-
-
-
-
 
 }
 
