@@ -1,6 +1,14 @@
 [
   {
-    "name": "Juan Perez",
-    "phot"
+    "name": "Juan Torres",
+    "arrived": 0
+  },
+  {
+    "name": "Pancrasio Gonzales",
+    "arrived": 0
+  },
+  {
+    "name": "Octavio Gutierrez",
+    "arrived": 0
   }
 ]
