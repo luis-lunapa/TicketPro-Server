@@ -20,7 +20,7 @@ foreach($data as $invitee) {
     $insertQuery = $db ->queryInsert(
         "Inserts the invitees to the db",
         array ("
-            INSER INTO 
+            INSERT INTO 
                 Ticket
                 (name, arrived, rawRepresentation)
                 VALUES
