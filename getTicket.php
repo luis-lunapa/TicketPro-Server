@@ -36,7 +36,6 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         "SELECT
         t.id,
         t.name,
-        t.photo,
         t.arrived
         FROM Ticket t
         WHERE t.id = $idTicket
@@ -48,7 +47,6 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
 
                 'id' => $row['id'],
                 'name' => $row['name'],
-                'photo' => $row['photo'],
                 'arrived' => $row['arrived']
             )
         );
