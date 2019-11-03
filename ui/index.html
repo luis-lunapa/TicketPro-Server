@@ -42,13 +42,18 @@
 					</span>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="name" value="Invitee Name">
+						<input class="input100" type="text" name="name" id="name" value="Invitee Name">
 <!--						<span class="focus-input100" data-placeholder="&#xf207;"></span>-->
 					</div>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="arrived" value="Already Arrived">
+						<input class="input100" type="text" name="arrived" id="arrived" value="Already Arrived">
 <!--						<span class="focus-input100" data-placeholder="&#xf191;"></span>-->
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="name" id="idTicket" value="" hidden>
+						<!--						<span class="focus-input100" data-placeholder="&#xf207;"></span>-->
 					</div>
 
 
@@ -113,10 +118,12 @@
 			data: { id: ticket },
 			dataType: 'json',
 			success: function (data) {
+				var nameField = $("#name")
+				var arrivedField = $("#arrived")
+
 				$.each(data, function(index, element) {
-					$('body').append($('<div>', {
-						text: element.name
-					}));
+					nameField.val(element.name)
+					arrivedField.val(element.arrived)
 				});
 			}
 		});
