@@ -114,7 +114,7 @@
 		//
 		// })
 
-		$.get("../getTicket.php?id="+ ticket, function(data, status){
+		$.getJSON("../getTicket.php?id="+ ticket, function(data, status){
 
 			if (data.empty) {
 				alert("Data is empty")
