@@ -117,7 +117,13 @@
 
 				$.each(data, function(index, element) {
 					nameField.val(element.name)
-					arrivedField.val(element.arrived)
+
+					if (element.arrived) {
+						arrivedField.val("Arrived")
+					} else {
+						arrivedField.val("Not Arrived")
+					}
+
 				});
 			}
 		});
