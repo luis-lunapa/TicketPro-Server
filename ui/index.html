@@ -106,6 +106,22 @@
 	var ticket = getUrlParameter('id');
 	console.log("Ticket is == " + ticket)
 
+	if (ticket != undefined) {
+		// $.ajax ({
+		// 	url: "../getTicket.php?id=" + ticket,
+		// 	method: "GET",
+		//
+		//
+		// })
+
+		$.get("../getTicket.php?id=\" + ticket", function(data, status){
+			alert("Data: " + data + "\nStatus: " + status);
+		});
+
+
+
+	}
+
 	</script>
 
 </body>
