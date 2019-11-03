@@ -52,9 +52,6 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         );
     }
 
-    if (isset($_GET['app'])) {
-
-    }
 } else if (isset($_GET['name']) && trim($_GET['name']) != "") {
     // Get only name ticket
     $nameTicket = $_GET['name'];
