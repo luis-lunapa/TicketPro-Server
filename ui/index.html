@@ -114,7 +114,7 @@
 		//
 		// })
 
-		$.get("../getTicket.php?id="+ ticket, function(data, status){
+		$.getJSON("../getTicket.php?id="+ ticket, function(data, status){
 
 			var json = JSON.parse(data)
 			alert("Data: " + json + "\nStatus: " + status);
