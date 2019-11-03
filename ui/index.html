@@ -107,19 +107,19 @@
 	console.log("Ticket is == " + ticket)
 
 	if (ticket != undefined) {
-		// $.ajax ({
-		// 	url: "../getTicket.php?id=" + ticket,
-		// 	method: "GET",
-		//
-		//
-		// })
-
-		$.getJSON("../getTicket.php?id="+ ticket, function(data, status){
-
-			var json = $.parseJSON(data)
-			alert("Data: " + json + "\nStatus: " + status);
+		$.ajax({
+			type: 'GET',
+			url: '../getTicket.php',
+			data: { id: ticket },
+			dataType: 'json',
+			success: function (data) {
+				$.each(data, function(index, element) {
+					$('body').append($('<div>', {
+						text: element.name
+					}));
+				});
+			}
 		});
-
 
 
 	}
