@@ -114,12 +114,10 @@
 		//
 		// })
 
-		$.getJSON("../getTicket.php?id="+ ticket, function(data, status){
+		$.get("../getTicket.php?id="+ ticket, function(data, status){
 
-			if (data.empty) {
-				alert("Data is empty")
-			}
-			alert("Data: " + data["name"] + "\nStatus: " + status);
+			var json = JSON.parse(data)
+			alert("Data: " + json + "\nStatus: " + status);
 		});
 
 
