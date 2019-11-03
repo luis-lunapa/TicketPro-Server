@@ -115,6 +115,10 @@
 		// })
 
 		$.get("../getTicket.php?id="+ ticket, function(data, status){
+
+			if (data.empty) {
+				alert("Data is empty")
+			}
 			alert("Data: " + data + "\nStatus: " + status);
 		});
 
