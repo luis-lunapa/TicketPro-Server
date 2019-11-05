@@ -115,6 +115,11 @@
 				var nameField = $("#name")
 				var arrivedField = $("#arrived")
 
+				if (data == undefined) {
+					alert("Invitee not found")
+				}
+
+
 				$.each(data, function(index, element) {
 					nameField.val(element.name)
 
