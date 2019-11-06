@@ -11,6 +11,7 @@ $raw=curl_exec($ch);
 
 $response = json_decode($raw);
 
+echo $response;
 
 foreach($response as $invitee) {
 
@@ -22,8 +23,7 @@ foreach($response as $invitee) {
 
 
     if (!$ticketSent) {
-    echo "Will send ticket to $id";
-    exit;
+
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $curl = curl_init();
         curl_setopt_array($curl, array(
