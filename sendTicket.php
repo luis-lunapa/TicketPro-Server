@@ -15,6 +15,7 @@ foreach($response as $invitee) {
     $arrived = $invitee['arrived'];
     $email = $invitee['email'];
     $ticketSent = $invitee['ticketSent'];
+    echo $email;
 
     if (!$ticketSent) {
         $generateTicketAPI = "generateTicket.php?id=" . $id;
