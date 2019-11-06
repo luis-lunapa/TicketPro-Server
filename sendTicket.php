@@ -20,7 +20,7 @@ foreach($response as $invitee) {
     $email = $invitee['email'];
     $ticketSent = $invitee['ticketSent'];
 
-   
+
     if (!$ticketSent) {
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $curl = curl_init();
@@ -49,6 +49,7 @@ $success = mail($email_to, $email_subject , $message,$headers);
         echo 'Successfully sent == ' . $success;
         if (!$success) {
             $errorMessage = error_get_last()['message'];
+            echo $errorMessage;
             header("HTTP/1.1 500");
         } else {
             echo 'Successfully sent';
