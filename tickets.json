@@ -1,14 +1,20 @@
 [
   {
-    "name": "Juan Torres",
-    "arrived": 0
+    "id": "1108578",
+    "name": "Luis Gerardo",
+    "arrived": 0,
+    "email": "luis.g.pena@oracle.com"
   },
   {
-    "name": "Pancrasio Gonzales",
-    "arrived": 0
+    "id": "1109878",
+    "name": "Jesus Cruz",
+    "arrived": 0,
+    "email": "jesus.cruz@oracle.com"
   },
   {
-    "name": "Octavio Gutierrez",
-    "arrived": 0
+    "id": "55400",
+    "name": "Pancho Pantera",
+    "arrived": 0,
+    "email": "pancho.pantera@oracle.com"
   }
 ]
