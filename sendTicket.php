@@ -1,5 +1,5 @@
 <?php
-$allTicketsAPI = "getTicket.php";
+$allTicketsAPI = "https://luislunapa.com/tickets/getTicket.php";
 
 $ch = curl_init ($allTicketsAPI);
 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -9,7 +9,7 @@ curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
 $raw=curl_exec($ch);
 
 $response = json_decode($raw);
-print_r($raw);
+print_r($response);
 
 foreach($response as $invitee) {
     $id = $invitee['id'];
