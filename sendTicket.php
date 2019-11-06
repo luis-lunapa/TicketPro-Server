@@ -13,7 +13,7 @@ $response = json_decode($raw);
 
 
 foreach($response as $invitee) {
-  //  print_r($invitee);
+    print_r($invitee);
     echo('+++++ NEXT +++');
     echo ($invitee['name']);
 }
