@@ -12,7 +12,7 @@ $raw=curl_exec($ch);
 $response = json_decode($raw);
 
 
-foreach($response as $key => $invitee) {
+foreach($raw as $key => $invitee) {
     //print_r($invitee);
     echo('+++++ NEXT +++');
     echo ('KEY = ' . $key);
