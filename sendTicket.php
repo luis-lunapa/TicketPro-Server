@@ -2,6 +2,9 @@
 $allTicketsAPI = "getTicket.php";
 
 $ch = curl_init ($allTicketsAPI);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
 
 $raw=curl_exec($ch);
 
