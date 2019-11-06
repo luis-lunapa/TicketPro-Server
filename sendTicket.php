@@ -14,6 +14,7 @@ $response = json_decode($raw);
 
 foreach($response as $invitee) {
     print_r($invitee);
+    echo('+++++ NEXT +++');
 }
 //    $id = $invitee['id'];
 //    $name = $invitee['name'];
