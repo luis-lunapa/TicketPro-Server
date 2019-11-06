@@ -15,8 +15,9 @@ $response = json_decode($raw);
 foreach($response as $key => $invitee) {
     //print_r($invitee);
     echo('+++++ NEXT +++');
-    echo ($key);
-    echo ($invitee);
+    echo ('KEY = ' . $key);
+    echo ('VALUE = ' . $invitee);
+    exit;
 }
 //    $id = $invitee['id'];
 //    $name = $invitee['name'];
