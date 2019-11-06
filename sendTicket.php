@@ -18,8 +18,8 @@ foreach($response as $invitee) {
     $arrived = $invitee['arrived'];
     $email = $invitee['email'];
     $ticketSent = $invitee['ticketSent'];
-    echo $email;
 
+    print_r($ticketSent);
     if (!$ticketSent) {
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $curl = curl_init();
