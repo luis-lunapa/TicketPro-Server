@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 $allTicketsAPI = "https://luislunapa.com/tickets/getTicket.php";
 
 $ch = curl_init ($allTicketsAPI);
@@ -12,7 +13,7 @@ $response = json_decode($raw);
 
 
 foreach($response as $invitee) {
-    
+
     $id = $invitee['id'];
     $name = $invitee['name'];
     $arrived = $invitee['arrived'];
@@ -21,6 +22,8 @@ foreach($response as $invitee) {
 
 
     if (!$ticketSent) {
+    echo "Will send ticket to $id";
+    exit;
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $curl = curl_init();
         curl_setopt_array($curl, array(
