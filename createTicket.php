@@ -12,18 +12,19 @@ if (isset($_GET['debug'])) {
 
 $data = json_validate(file_get_contents('php://input'));
 foreach($data as $invitee) {
+    $id = $invitee['id'];
     $name = $invitee['name'];
     $arrived = $invitee['arrived'];
-    $rawRepresentation = md5(uniqid(rand(), true));
+    $email = $invitee['email'];
 
     $insertQuery = $db ->queryInsert(
         "Inserts the invitees to the db",
         array ("
             INSERT INTO 
                 Ticket
-                (name, arrived, raw)
+                (id, name, arrived, email)
                 VALUES
-                ('$name', $arrived, '$rawRepresentation')
+                ('$id', '$name', $arrived, '$email')
         ")
     );
     if ($insertQuery) {
