@@ -6,11 +6,7 @@ $ch = curl_init ($allTicketsAPI);
 $raw=curl_exec($ch);
 
 $response = json_decode($raw);
-print_r($response);
-
-
-
-
+print_r($raw);
 
 foreach($response as $invitee) {
     $id = $invitee['id'];
