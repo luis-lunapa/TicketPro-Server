@@ -10,15 +10,15 @@ $idTicket = $_GET['id'];
 
 $ticketAPI = "https://barcode.tec-it.com/barcode.ashx?data=" . "id:$idTicket" . "&code=PDF417&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=png&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0";
 
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => $ticketAPI
-));
+//$curl = curl_init();
+//curl_setopt_array($curl, array(
+//    CURLOPT_RETURNTRANSFER => 1,
+//    CURLOPT_URL => $ticketAPI
+//));
 
-$ticketResponse= curl_exec($curl);
+grab_image($ticketAPI, $idTicket);
 
-$ticketCode = imagepng($ticketResponse);
+$ticketCode = imagecreatefrompng("generatedTickets/" . $idTicket . ".png");
 $ticketImage = imagecreatefrompng('resources/ticket.png');
 
 imagealphablending($ticketImage, false);
@@ -28,3 +28,20 @@ imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 40, 40, 100);
 
 header('Content-Type: image/png');
 imagepng($ticketCode);
+
+function grab_image($url, $idTicket){
+    $ch = curl_init ($url);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
+    $raw=curl_exec($ch);
+    curl_close ($ch);
+    $saveto = "generatedTickets/" . $idTicket . ".png";
+    if(file_exists($saveto)){
+        unlink($saveto);
+    }
+
+    $fp = fopen($saveto,'x');
+    fwrite($fp, $raw);
+    fclose($fp);
+}
