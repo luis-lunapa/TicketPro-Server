@@ -9,9 +9,10 @@ curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
 $raw=curl_exec($ch);
 
 $response = json_decode($raw);
-print_r($response);
+
 
 foreach($response as $invitee) {
+    print_r($invitee);
     $id = $invitee['id'];
     $name = $invitee['name'];
     $arrived = $invitee['arrived'];
