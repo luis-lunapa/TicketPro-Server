@@ -1,14 +1,11 @@
 <?php
 $allTicketsAPI = "getTicket.php";
 
-$curl = curl_init();
+$ch = curl_init ($allTicketsAPI);
 
-curl_setopt_array($curl, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => $allTicketsAPI
-));
+$raw=curl_exec($ch);
 
-$response = json_decode(curl_exec($curl));
+$response = json_decode($raw);
 print_r($response);
 
 
