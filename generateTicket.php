@@ -10,12 +10,6 @@ $idTicket = $_GET['id'];
 
 $ticketAPI = "https://barcode.tec-it.com/barcode.ashx?data=" . "id:$idTicket" . "&code=PDF417&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=png&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0";
 
-//$curl = curl_init();
-//curl_setopt_array($curl, array(
-//    CURLOPT_RETURNTRANSFER => 1,
-//    CURLOPT_URL => $ticketAPI
-//));
-
 grab_image($ticketAPI, $idTicket);
 
 $ticketCode = imagecreatefrompng("generatedTickets/" . $idTicket . ".png");
@@ -24,7 +18,7 @@ $ticketImage = imagecreatefrompng('resources/ticket.png');
 imagealphablending($ticketImage, false);
 imagesavealpha($ticketImage, true);
 
-imagecopymerge($ticketImage, $ticketCode, 10, 9, 0, 0, 181, 180, 100);
+imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 40, 40, 100);
 
 header('Content-Type: image/png');
 imagepng($ticketImage);
