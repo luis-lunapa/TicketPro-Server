@@ -37,7 +37,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         t.id,
         t.name,
         t.arrived,
-        t.email
+        t.email,
+        t.ticketSent
         FROM Ticket t
         WHERE t.id = $idTicket
         "
@@ -49,7 +50,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
                 'id' => $row['id'],
                 'name' => $row['name'],
                 'arrived' => $row['arrived'],
-                'email' => $row['email']
+                'email' => $row['email'],
+                'ticketSent' => $row['ticketSent']
             )
         );
     }
@@ -63,7 +65,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         t.id,
         t.name,
         t.arrived,
-        t.email
+        t.email,
+        t.ticketSent
         FROM Ticket t
         WHERE t.name LIKE '%$nameTicket%'
         "
@@ -74,7 +77,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
                 'id' => $row['id'],
                 'name' => $row['name'],
                 'arrived' => $row['arrived'],
-                'email' => $row['email']
+                'email' => $row['email'],
+                'ticketSent' => $row['ticketSent']
             )
         );
     }
@@ -86,7 +90,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         t.id,
         t.name,
         t.arrived,
-        t.email
+        t.email,
+        t.ticketSent
         FROM Ticket t
 
         "
@@ -97,7 +102,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
                 'id' => $row['id'],
                 'name' => $row['name'],
                 'arrived' => $row['arrived'],
-                'email' => $row['email']
+                'email' => $row['email'],
+                'ticketSent' => $row['ticketSent']
             )
         );
     }
