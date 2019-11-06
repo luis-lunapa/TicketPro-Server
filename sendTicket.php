@@ -11,7 +11,7 @@ $raw=curl_exec($ch);
 
 $response = json_decode($raw);
 
-echo $response;
+print_r($response);
 
 foreach($response as $invitee) {
 
