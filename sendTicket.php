@@ -8,7 +8,7 @@ curl_setopt_array($curl, array(
 ));
 
 $response = json_decode(curl_exec($curl));
-
+echo $response;
 foreach($response as $invitee) {
     $id = $invitee['id'];
     $name = $invitee['name'];
