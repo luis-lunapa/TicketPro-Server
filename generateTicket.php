@@ -18,7 +18,7 @@ $ticketImage = imagecreatefrompng('resources/ticket.png');
 imagealphablending($ticketImage, false);
 imagesavealpha($ticketImage, true);
 
-imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 150, 40, 100);
+imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 200, 40, 100);
 
 header('Content-Type: image/png');
 imagepng($ticketImage);
