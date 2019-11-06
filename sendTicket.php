@@ -26,7 +26,7 @@ foreach($response as $invitee) {
 
         curl_exec($curl);
 
-        "generatedTickets/" . $idTicket . ".png";
+
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         $email_to = "jesus.cruz@oracle.com";
@@ -41,6 +41,7 @@ foreach($response as $invitee) {
 
 $success = mail($email_to, $email_subject , $message,$headers);
 
+        echo 'Successfully sent == ' . $success;
         if (!$success) {
             $errorMessage = error_get_last()['message'];
             header("HTTP/1.1 500");
