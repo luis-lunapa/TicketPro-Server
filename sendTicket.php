@@ -1,5 +1,5 @@
 <?php
-$allTicketsAPI = "./getTicket.php";
+$allTicketsAPI = "https://luislunapa.com/tickets/getTicket.php";
 
 $ch = curl_init ($allTicketsAPI);
 curl_setopt($ch, CURLOPT_HEADER, 0);
