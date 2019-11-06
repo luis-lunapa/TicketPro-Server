@@ -39,7 +39,12 @@ foreach($response as $invitee) {
 <img src=\"/generatedTicket/'$idTicket'.jpg\">
 </body>";
 
-mail($email_to, $email_subject , $message,$headers);
+$success = mail($email_to, $email_subject , $message,$headers);
+
+        if (!$success) {
+            $errorMessage = error_get_last()['message'];
+            header("HTTP/1.1 500");
+        }
 
 
 
