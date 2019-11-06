@@ -27,7 +27,7 @@ imagesavealpha($ticketImage, true);
 imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 40, 40, 100);
 
 header('Content-Type: image/png');
-imagepng($ticketCode);
+imagepng($ticketImage);
 
 function grab_image($url, $idTicket){
     $ch = curl_init ($url);
