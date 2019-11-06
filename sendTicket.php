@@ -12,10 +12,11 @@ $raw=curl_exec($ch);
 $response = json_decode($raw);
 
 
-foreach($response as $invitee) {
-    print_r($invitee);
+foreach($response as $key => $invitee) {
+    //print_r($invitee);
     echo('+++++ NEXT +++');
-    echo ($invitee['name']);
+    echo ($key);
+    echo ($invitee);
 }
 //    $id = $invitee['id'];
 //    $name = $invitee['name'];
