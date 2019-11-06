@@ -36,7 +36,7 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         "SELECT
         t.id,
         t.name,
-        t.arrived
+        t.arrived,
         t.email
         FROM Ticket t
         WHERE t.id = $idTicket
@@ -62,7 +62,7 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         "SELECT
         t.id,
         t.name,
-        t.arrived
+        t.arrived,
         t.email
         FROM Ticket t
         WHERE t.name LIKE '%$nameTicket%'
@@ -85,7 +85,7 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         "SELECT
         t.id,
         t.name,
-        t.arrived
+        t.arrived,
         t.email
         FROM Ticket t
 
