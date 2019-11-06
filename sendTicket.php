@@ -44,6 +44,8 @@ $success = mail($email_to, $email_subject , $message,$headers);
         if (!$success) {
             $errorMessage = error_get_last()['message'];
             header("HTTP/1.1 500");
+        } else {
+            echo 'Successfully sent';
         }
 
 
