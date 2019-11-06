@@ -16,6 +16,13 @@ curl_setopt_array($curl, array(
     CURLOPT_URL => $ticketAPI
 ));
 
-$response = curl_exec($curl);
+$ticketCode= curl_exec($curl);
+$ticketImage = imagecreatefrompng('resources/ticket.png');
 
-echo $response;
+imagealphablending($ticketImage, false);
+imagesavealpha($ticketImage, true);
+
+imagecopymerge($ticketImage, $ticketCode, 10, 9, 0, 0, 181, 180, 100);
+
+header('Content-Type: image/png');
+imagepng($ticketImage);
