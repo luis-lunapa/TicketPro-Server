@@ -24,7 +24,7 @@ foreach($response as $invitee) {
     if (!$ticketSent) {
 
         $generateTicketAPI = "generateTicket.php?id=" . $id;
-        $saveto = "generatedTickets/N" . $idTicket . ".png";
+        $saveto = "generatedTickets/N" . $id . ".png";
         grab_image($generateTicketAPI, $id, $saveto);
 
 
