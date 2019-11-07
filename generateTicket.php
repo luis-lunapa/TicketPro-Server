@@ -12,7 +12,7 @@ $ticketAPI = "https://barcode.tec-it.com/barcode.ashx?data=" . "id:$idTicket" . 
 
 grab_image($ticketAPI, $idTicket);
 
-$ticketCode = imagecreatefrompng("generatedTickets/" . $idTicket . ".png");
+$ticketCode = imagecreatefrompng("generatedTickets/onlyCode" . $idTicket . ".png");
 $ticketImage = imagecreatefrompng('resources/ticket.png');
 
 imagealphablending($ticketImage, false);
@@ -38,7 +38,7 @@ function grab_image($url, $idTicket){
     curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
     $raw=curl_exec($ch);
     curl_close ($ch);
-    $saveto = "generatedTickets/" . $idTicket . ".png";
+    $saveto = "generatedTickets/onlyCode" . $idTicket . ".png";
     if(file_exists($saveto)){
         unlink($saveto);
     }
