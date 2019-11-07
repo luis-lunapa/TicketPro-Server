@@ -42,7 +42,7 @@ foreach($response as $invitee) {
 <title>Your email at the time</title>
 </head>
 <body>
-<img src=\"/generatedTicket/'$id'.jpg\">
+<img src=\"/generatedTicket/$id.png\">
 </body>";
 
         echo $message;

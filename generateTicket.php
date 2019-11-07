@@ -23,6 +23,14 @@ imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 250, 40, 100);
 header('Content-Type: image/png');
 imagepng($ticketImage);
 
+$saveto = "generatedTickets/" . $idTicket . ".png";
+if(file_exists($saveto)){
+    unlink($saveto);
+}
+$fp = fopen($saveto,'x');
+fwrite($fp, $raw);
+fclose($fp);
+
 function grab_image($url, $idTicket){
     $ch = curl_init ($url);
     curl_setopt($ch, CURLOPT_HEADER, 0);
