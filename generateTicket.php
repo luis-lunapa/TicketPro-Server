@@ -28,6 +28,8 @@ if ($done) {
     $fp = fopen($saveto,'x');
     fwrite($fp, $ticketImage);
     fclose($fp);
+} else {
+    header("HTTP/1.1 500 Internal Server Error");
 }
 //header('Content-Type: image/png');
 //imagepng($ticketImage);
