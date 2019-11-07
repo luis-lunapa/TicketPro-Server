@@ -20,7 +20,7 @@ imagesavealpha($ticketImage, true);
 
 imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 250, 40, 100);
 
-header('Content-Type: image/png');
+//header('Content-Type: image/png');
 //imagepng($ticketImage);
 
 
