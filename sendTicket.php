@@ -24,22 +24,8 @@ foreach($response as $invitee) {
     if (!$ticketSent) {
 
         $generateTicketAPI = "generateTicket.php?id=" . $id;
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $generateTicketAPI,
-            CURLOPT_BINARYTRANSFER => 1
-        ));
-
-        $image = curl_exec($curl);
-
-        $saveto = "generatedTickets/N" . $id . ".png";
-        if(file_exists($saveto)){
-            unlink($saveto);
-        }
-        $fp = fopen($saveto,'x');
-        fwrite($fp, $image);
-        fclose($fp);
+        $saveto = "generatedTickets/N" . $idTicket . ".png";
+        grab_image($generateTicketAPI, $id, $saveto);
 
 
         $headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -77,3 +63,20 @@ foreach($response as $invitee) {
 
 }
 header("HTTP/1.1 200 OK");
+
+function grab_image($url, $idTicket, $saveto){
+    $ch = curl_init ($url);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
+    $raw=curl_exec($ch);
+    curl_close ($ch);
+
+    if(file_exists($saveto)){
+        unlink($saveto);
+    }
+
+    $fp = fopen($saveto,'x');
+    fwrite($fp, $raw);
+    fclose($fp);
+}
