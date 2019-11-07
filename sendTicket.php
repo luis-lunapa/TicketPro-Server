@@ -30,11 +30,10 @@ foreach($response as $invitee) {
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $saveto = "generatedTickets/N" . $id . ".png";
 
-        $rawImage = grab_image($generateTicketAPI, $id, $saveto);
+        $url = 'http://luislunapa.com/tickets/generateTicket.php';
+        $img = 'generatedTickets/TO' . $id . '.png';
+        file_put_contents($img, file_get_contents($url));
 
-        header('Content-Type: image/png');
-        imagepng($rawImage);
-        exit;
 
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -45,7 +44,7 @@ foreach($response as $invitee) {
 <title>Your email at the time</title>
 </head>
 <body>
-<img src=\"$saveto\">
+<img src=\"$img\">
 </body>";
 
       //  echo $message;
