@@ -28,7 +28,7 @@ if(file_exists($saveto)){
     unlink($saveto);
 }
 $fp = fopen($saveto,'x');
-fwrite($fp, $raw);
+fwrite($fp, $ticketImage);
 fclose($fp);
 
 function grab_image($url, $idTicket){
