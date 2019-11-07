@@ -30,7 +30,7 @@ foreach($response as $invitee) {
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $saveto = "generatedTickets/N" . $id . ".png";
 
-        $url = 'http://luislunapa.com/tickets/generateTicket.php';
+        $url = 'http://luislunapa.com/tickets/generateTicket.php?id=' . $id;
         $img = 'generatedTickets/TO' . $id . '.png';
         file_put_contents($img, file_get_contents($url));
 
@@ -47,7 +47,7 @@ foreach($response as $invitee) {
 <img src=\"$img\">
 </body>";
 
-      //  echo $message;
+        echo $message;
 
 //$success = mail($email_to, $email_subject , $message,$headers);
 //
