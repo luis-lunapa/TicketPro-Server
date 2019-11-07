@@ -25,8 +25,12 @@ foreach($response as $invitee) {
 
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $saveto = "generatedTickets/N" . $id . ".png";
-        grab_image($generateTicketAPI, $id, $saveto);
 
+        $rawImage = grab_image($generateTicketAPI, $id, $saveto);
+
+        header('Content-Type: image/png');
+        imagepng($rawImage);
+        exit;
 
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -71,12 +75,6 @@ function grab_image($url, $idTicket, $saveto){
     curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
     $raw=curl_exec($ch);
     curl_close ($ch);
+    return $raw;
 
-    if(file_exists($saveto)){
-        unlink($saveto);
-    }
-
-    $fp = fopen($saveto,'x');
-    fwrite($fp, $raw);
-    fclose($fp);
 }
