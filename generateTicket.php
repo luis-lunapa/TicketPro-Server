@@ -21,13 +21,7 @@ imagesavealpha($ticketImage, true);
 $done = imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 250, 40, 100);
 
 if ($done) {
-    $saveto = "generatedTickets/" . $idTicket . ".png";
-    if(file_exists($saveto)){
-        unlink($saveto);
-    }
-    $fp = fopen($saveto,'x');
-    fwrite($fp, $ticketImage);
-    fclose($fp);
+
 } else {
     header("HTTP/1.1 500 Internal Server Error");
 }

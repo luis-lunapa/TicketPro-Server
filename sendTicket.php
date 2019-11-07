@@ -30,7 +30,15 @@ foreach($response as $invitee) {
             CURLOPT_URL => $generateTicketAPI
         ));
 
-        curl_exec($curl);
+        $image = curl_exec($curl);
+
+        $saveto = "generatedTickets/N" . $id . ".png";
+        if(file_exists($saveto)){
+            unlink($saveto);
+        }
+        $fp = fopen($saveto,'x');
+        fwrite($fp, $image);
+        fclose($fp);
 
 
         $headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -42,7 +50,7 @@ foreach($response as $invitee) {
 <title>Your email at the time</title>
 </head>
 <body>
-<img src=\"/generatedTicket/$id.png\">
+<img src=\"$saveto\">
 </body>";
 
         echo $message;
