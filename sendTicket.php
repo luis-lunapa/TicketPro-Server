@@ -27,7 +27,8 @@ foreach($response as $invitee) {
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $generateTicketAPI
+            CURLOPT_URL => $generateTicketAPI,
+            CURLOPT_BINARYTRANSFER => 1
         ));
 
         $image = curl_exec($curl);
