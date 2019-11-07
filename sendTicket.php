@@ -45,6 +45,8 @@ foreach($response as $invitee) {
 <img src=\"/generatedTicket/'$idTicket'.jpg\">
 </body>";
 
+        echo $message;
+
 $success = mail($email_to, $email_subject , $message,$headers);
 
         echo 'Successfully sent == ' . $success;
