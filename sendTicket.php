@@ -9,13 +9,13 @@ curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
 
 $raw=curl_exec($ch);
 
-$response = json_decode($raw);
+$response = json_decode($raw, true);
 
 
 foreach($response as $invitee) {
     //print_r($invitee);
     echo('+++++ NEXT +++');
-    echo ('VALUE = ' . $invitee[0]);
+    echo ('VALUE = ' . $invitee['id']);
     exit;
 }
 //    $id = $invitee['id'];
