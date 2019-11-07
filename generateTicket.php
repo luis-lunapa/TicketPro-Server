@@ -31,8 +31,8 @@ if ($done) {
 } else {
     header("HTTP/1.1 500 Internal Server Error");
 }
-//header('Content-Type: image/png');
-//imagepng($ticketImage);
+header('Content-Type: image/png');
+imagepng($ticketImage);
 
 
 
