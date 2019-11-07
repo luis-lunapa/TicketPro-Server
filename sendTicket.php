@@ -40,7 +40,7 @@ foreach($response as $invitee) {
 <img src=\"$saveto\">
 </body>";
 
-        echo $message;
+      //  echo $message;
 
 //$success = mail($email_to, $email_subject , $message,$headers);
 //
