@@ -21,14 +21,15 @@ imagesavealpha($ticketImage, true);
 imagecopymerge($ticketImage, $ticketCode, 0, 0, 0, 0, 250, 40, 100);
 
 header('Content-Type: image/png');
-imagepng($ticketImage);
+//imagepng($ticketImage);
+
 
 $saveto = "generatedTickets/" . $idTicket . ".png";
 if(file_exists($saveto)){
     unlink($saveto);
 }
 $fp = fopen($saveto,'x');
-fwrite($fp, $ticketImage);
+fwrite($fp, $ticketCode);
 fclose($fp);
 
 function grab_image($url, $idTicket){
