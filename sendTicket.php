@@ -48,8 +48,7 @@ foreach($response as $invitee) {
 <body>
 <img src=\"$imageFileRoute\">
 </body>";
-
-        echo $message;
+        
 
 $success = mail($email_to, $email_subject , $message,$headers);
 
