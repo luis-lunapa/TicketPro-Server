@@ -130,7 +130,7 @@
 
 					if (element.arrived) {
 						arrivedField.val("Arrived")
-						arrivedField.enabled = false
+						arrivedField.setAttribute("disabled", true);
 					} else {
 						arrivedField.val("Not Arrived")
 					}
