@@ -130,8 +130,8 @@
 
 					if (element.arrived) {
 						arrivedField.val("Arrived")
-						$("#arrivedButton").setAttribute("hidden", true);
-						$("#arrivedButton").html("Admited");
+						$("#arrivedButton").prop("disabled", true);
+						$("#arrivedButton").prop("value", "Admited");
 					} else {
 						arrivedField.val("Not Arrived")
 					}
@@ -157,7 +157,7 @@
 
 				if (data.length) {
 					$("#arrivedButton").prop("disabled", true);
-					$("#arrivedButton").setAttribute("value", "Admited");
+					$("#arrivedButton").prop("value", "Admited");
 					Swal.fire(
 							'Great!',
 							'Guest Admited',
