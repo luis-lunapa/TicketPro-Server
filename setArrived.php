@@ -28,5 +28,4 @@ if ($updatedArrived) {
     $response['msg'] = 'Successfully arrived';
 } else {
     header("HTTP/1.1 500 Internal Server Error");
-    $response['msg'] = 'Error updating arrived';
 }

@@ -52,7 +52,7 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button id="arrivedButton" class="login100-form-btn">
 							Admit
 						</button>
 					</div>
@@ -86,6 +86,8 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script src="../include/SweetAlert.js"></script>
+
 <script>
 	var getUrlParameter = function getUrlParameter(sParam) {
 		var sPageURL = window.location.search.substring(1),
@@ -127,6 +129,7 @@
 
 					if (element.arrived) {
 						arrivedField.val("Arrived")
+						arrivedField.enabled = false
 					} else {
 						arrivedField.val("Not Arrived")
 					}
@@ -137,6 +140,39 @@
 
 
 	}
+
+	$("#arrivedButton").click(function () {
+		$.ajax({
+			type: 'GET',
+			url: '../setArrived.php',
+			data: { id: ticket },
+			dataType: 'json',
+			success: function (data) {
+				var nameField = $("#name")
+				var arrivedField = $("#arrived")
+
+				console.log(data)
+
+				if (!data.length) {
+					alert("Invitee not found")
+				}
+				//
+				//
+				// $.each(data, function(index, element) {
+				// 	nameField.val(element.name)
+				//
+				// 	if (element.arrived) {
+				// 		arrivedField.val("Arrived")
+				// 		arrivedField.enabled = false
+				// 	} else {
+				// 		arrivedField.val("Not Arrived")
+				// 	}
+				//
+				// });
+			}
+		});
+
+	})
 
 	</script>
 
