@@ -64,7 +64,7 @@ $success = mail($email_to, $email_subject , $message,$headers);
                 "Updates the ticket sent value",
                 array(
                     "UPDATE TICKET
-                    SET ticketSend = 1
+                    SET ticketSent = 1
                     WHERE id = $id
                     
                     ")
