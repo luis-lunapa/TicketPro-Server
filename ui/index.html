@@ -120,7 +120,6 @@
 				var nameField = $("#name")
 				var arrivedField = $("#arrived")
 
-				console.log(data)
 
 				if (!data.length) {
 					Swal.fire(
@@ -133,7 +132,7 @@
 
 				$.each(data, function(index, element) {
 					nameField.val(element.name)
-					console.log("ARRIVED = " + element.arrived);
+					console.log("ARRIVED = " + element.arrived == "0");
 
 					if (element.arrived == "1") {
 						arrivedField.val("Arrived")
