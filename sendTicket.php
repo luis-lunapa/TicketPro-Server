@@ -63,7 +63,7 @@ $success = mail($email_to, $email_subject , $message,$headers);
             $updated = $db -> queryInsert(
                 "Updates the ticket sent value",
                 array(
-                    "UPDATE TICKET
+                    "UPDATE Ticket
                     SET ticketSent = 1
                     WHERE id = $id
                     
