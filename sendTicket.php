@@ -1,4 +1,6 @@
 <?php
+require_once('header.php');
+
 if (isset($_GET['debug'])) {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
