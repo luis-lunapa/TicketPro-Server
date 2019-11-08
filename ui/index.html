@@ -133,6 +133,7 @@
 
 				$.each(data, function(index, element) {
 					nameField.val(element.name)
+					console.log("ARRIVED = " + element);
 
 					if (element.arrived) {
 						arrivedField.val("Arrived")
