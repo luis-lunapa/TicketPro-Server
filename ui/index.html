@@ -90,6 +90,10 @@
 	<script src="../include/SweetAlert.js"></script>
 
 <script>
+
+	$(document.onload({
+
+	}))
 	var getUrlParameter = function getUrlParameter(sParam) {
 		var sPageURL = window.location.search.substring(1),
 				sURLVariables = sPageURL.split('&'),
@@ -106,6 +110,7 @@
 	}
 
 	var ticket = getUrlParameter('id');
+
 	console.log("Ticket is == " + ticket)
 
 	if (ticket != undefined) {
@@ -121,7 +126,11 @@
 				console.log(data)
 
 				if (!data.length) {
-					alert("Invitee not found")
+					Swal.fire(
+							'Sorry!',
+							'Not Found Guest,
+					'success'
+				)
 				}
 
 
@@ -141,6 +150,12 @@
 		});
 
 
+	} else {
+		Swal.fire(
+				'Sorry!',
+				'No ticket specified,
+		'success'
+	)
 	}
 
 	$("#arrivedButton").click(function () {
@@ -167,7 +182,7 @@
 					Swal.fire(
 							'Sorry!',
 							'Problem admiting this guest,
-							'success'
+							'error'
 					)
 				}
 				//
