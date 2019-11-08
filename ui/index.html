@@ -132,7 +132,6 @@
 
 				$.each(data, function(index, element) {
 					nameField.val(element.name)
-					console.log("ARRIVED = " + element.arrived == "0");
 
 					if (element.arrived == "1") {
 						arrivedField.val("Arrived")
@@ -158,6 +157,7 @@
 	}
 
 	$("#arrivedButton").click(function () {
+		console.log("Click on admit button");
 		$.ajax({
 			type: 'GET',
 			url: '../setArrived.php',
