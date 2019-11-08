@@ -126,7 +126,7 @@
 					Swal.fire(
 							'Sorry!',
 							'Not Found Guest',
-					'error'
+							'error'
 				)
 				}
 
@@ -140,6 +140,8 @@
 						$("#arrivedButton").prop("value", "Admited");
 					} else {
 						arrivedField.val("Not Arrived")
+						$("#arrivedButton").prop("disabled", false);
+						$("#arrivedButton").prop("value", "Admit");
 					}
 
 				});
