@@ -22,8 +22,8 @@ $updatedArrived = $db -> queryInsert(
     "Updates arrived ticket value",
     array(
         "UPDATE Ticket
-                    SET arrived = 1
-                    WHERE id = $id
+            SET arrived = 1
+            WHERE id = $id
                     
                     ")
 );
