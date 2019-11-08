@@ -7,6 +7,7 @@ if (isset($_GET['debug'])) {
     error_reporting(E_ALL);
 }
 $allTicketsAPI = $domain . "tickets/getTicket.php";
+echo 'TICKETS API = ' . $allTicketsAPI;
 
 $ch = curl_init ($allTicketsAPI);
 curl_setopt($ch, CURLOPT_HEADER, 0);
