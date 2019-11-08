@@ -40,7 +40,7 @@ foreach($response as $invitee) {
         $imageFileRoute = $domain . 'tickets/' . $img;
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $email_to = "lunagam.la@gmail.com";
+        $email_to = $email;
         $email_subject = "Oracle Party Ticket";
 
         $message = "<html><head>
@@ -62,6 +62,16 @@ exit;
             header("HTTP/1.1 500");
         } else {
             echo 'Successfully sent';
+            /// Set ticket sent to true
+            $updated = $db -> queryInsert(
+                "Updates the ticket sent value",
+                array(
+                    "UPDATE TICKET
+                    SET ticketSend = 1
+                    WHERE id = $$id
+                    
+                    ")
+            );
         }
 
 
