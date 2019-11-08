@@ -130,7 +130,7 @@
 
 					if (element.arrived) {
 						arrivedField.val("Arrived")
-						arrivedField.setAttribute("disabled", true);
+						$("#arrivedButton").setAttribute("disabled", true);
 					} else {
 						arrivedField.val("Not Arrived")
 					}
@@ -154,8 +154,8 @@
 
 				console.log(data)
 
-				if (!data.length) {
-					alert("Invitee not found")
+				if (data.length) {
+					$("#arrivedButton").setAttribute("disabled", true);
 				}
 				//
 				//
