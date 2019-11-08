@@ -76,6 +76,8 @@ exit;
 
 
 
+    } else {
+        echo "Ticket already sent to: " . $email;
     }
 
 
