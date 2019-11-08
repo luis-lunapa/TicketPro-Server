@@ -40,7 +40,7 @@ foreach($response as $invitee) {
         $imageFileRoute = $domain . 'tickets/' . $img;
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $email_to = "luis.g.pena@oracle.com";
+        $email_to = "lunagam.la@gmail.com";
         $email_subject = "Oracle Party Ticket";
 
         $message = "<html><head>
