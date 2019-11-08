@@ -157,6 +157,18 @@
 
 				if (data.length) {
 					$("#arrivedButton").setAttribute("disabled", true);
+					$("#arrivedButton").setAttribute("value", "Admited");
+					Swal.fire(
+							'Great!',
+							'Guest Admited',
+							'success'
+					)
+				} else {
+					Swal.fire(
+							'Sorry!',
+							'Problem admiting this guest,
+							'success'
+					)
 				}
 				//
 				//
