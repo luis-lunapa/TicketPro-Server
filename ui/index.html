@@ -135,7 +135,7 @@
 					nameField.val(element.name)
 					console.log("ARRIVED = " + element.arrived);
 
-					if (element.arrived) {
+					if (element.arrived == "1") {
 						arrivedField.val("Arrived")
 						$("#arrivedButton").prop("disabled", true);
 						$("#arrivedButton").prop("value", "Admited");
