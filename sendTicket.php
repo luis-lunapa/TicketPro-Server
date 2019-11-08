@@ -7,7 +7,6 @@ if (isset($_GET['debug'])) {
     error_reporting(E_ALL);
 }
 $allTicketsAPI = $domain . "tickets/getTicket.php";
-echo 'TICKETS API = ' . $allTicketsAPI;
 
 $ch = curl_init ($allTicketsAPI);
 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -53,7 +52,6 @@ foreach($response as $invitee) {
         echo $message;
 
 $success = mail($email_to, $email_subject , $message,$headers);
-exit;
 
         echo 'Successfully sent == ' . $success;
         if (!$success) {
