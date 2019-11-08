@@ -48,7 +48,7 @@ foreach($response as $invitee) {
 <body>
 <img src=\"$imageFileRoute\">
 </body>";
-        
+
 
 $success = mail($email_to, $email_subject , $message,$headers);
 
@@ -65,7 +65,7 @@ $success = mail($email_to, $email_subject , $message,$headers);
                 array(
                     "UPDATE TICKET
                     SET ticketSend = 1
-                    WHERE id = $$id
+                    WHERE id = $id
                     
                     ")
             );
