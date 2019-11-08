@@ -6,7 +6,7 @@ $response = array();
 
 $id = "";
 
-if (isset($_GET['id']) && trim($_GET['id']) != "") {
+if (!isset($_GET['id']) && trim($_GET['id']) == "") {
     header("HTTP/1.1 422 Unprocessable Entity");
     exit;
 }
