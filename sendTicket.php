@@ -49,17 +49,17 @@ foreach($response as $invitee) {
 
         echo $message;
 
-//$success = mail($email_to, $email_subject , $message,$headers);
-//
-//        echo 'Successfully sent == ' . $success;
-//        if (!$success) {
-//            $errorMessage = error_get_last()['message'];
-//            echo $errorMessage;
-//            header("HTTP/1.1 500");
-//        } else {
-//            echo 'Successfully sent';
-//        }
-//
+$success = mail($email_to, $email_subject , $message,$headers);
+
+        echo 'Successfully sent == ' . $success;
+        if (!$success) {
+            $errorMessage = error_get_last()['message'];
+            echo $errorMessage;
+            header("HTTP/1.1 500");
+        } else {
+            echo 'Successfully sent';
+        }
+
 
 
     }
