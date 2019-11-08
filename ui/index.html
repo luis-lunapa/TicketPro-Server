@@ -131,8 +131,8 @@
 					if (element.arrived) {
 						arrivedField.val("Arrived")
 						$("#arrivedButton").setAttribute("disabled", true);
-						$("#arrivedButton").setAttribute("value", "Admited");
-					} else {
+						$("#arrivedButton").html("Admited");
+					} else {,
 						arrivedField.val("Not Arrived")
 					}
 
