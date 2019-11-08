@@ -156,7 +156,7 @@
 				console.log(data)
 
 				if (data.length) {
-					$("#arrivedButton").setAttribute("disabled", true);
+					$("#arrivedButton").prop("disabled", true);
 					$("#arrivedButton").setAttribute("value", "Admited");
 					Swal.fire(
 							'Great!',
