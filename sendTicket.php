@@ -4,7 +4,7 @@ if (isset($_GET['debug'])) {
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 }
-$allTicketsAPI = "https://luislunapa.com/tickets/getTicket.php";
+$allTicketsAPI = $domain . "tickets/getTicket.php";
 
 $ch = curl_init ($allTicketsAPI);
 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -34,7 +34,7 @@ foreach($response as $invitee) {
         $img = 'generatedTickets/TO' . $id . '.png';
         file_put_contents($img, file_get_contents($url));
 
-
+        $imageFileRoute = $domain . 'tickets/' . $img;
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         $email_to = "luis.g.pena@oracle.com";
@@ -44,12 +44,13 @@ foreach($response as $invitee) {
 <title>Your email at the time</title>
 </head>
 <body>
-<img src=\"$img\">
+<img src=\"$imageFileRoute\">
 </body>";
 
         echo $message;
 
 $success = mail($email_to, $email_subject , $message,$headers);
+exit;
 
         echo 'Successfully sent == ' . $success;
         if (!$success) {
