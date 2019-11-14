@@ -145,13 +145,13 @@ class DBManager {
                 echo $errorMsg;
                 $this->conn->query("ROLLBACK");
 
-                return 0;
+                return false;
             }
 
             $id = $this->conn->insert_id;
 
             $this->conn->query("COMMIT");
-            return $id;
+            return true;
 
         }
 
