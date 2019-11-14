@@ -27,6 +27,7 @@ $updatedArrived = $db -> queryInsert(
                     
                     ")
 );
+$db -> printQuery();
 
 if ($updatedArrived) {
     header("HTTP/1.1 200 OK");
