@@ -18,7 +18,7 @@ if (!isset($_GET['id']) && trim($_GET['id']) == "") {
 
 $id = $_GET['id'];
 
-$updatedArrived = $db -> queryInsert(
+$updatedArrived = $db -> queryUpdate(
     "Updates arrived ticket value",
     array(
         "UPDATE Ticket
@@ -27,7 +27,7 @@ $updatedArrived = $db -> queryInsert(
                     
                     ")
 );
-$db -> printQuery();
+
 
 if ($updatedArrived) {
     header("HTTP/1.1 200 OK");
