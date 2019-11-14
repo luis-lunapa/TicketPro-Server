@@ -18,6 +18,21 @@ if (!isset($_GET['id']) && trim($_GET['id']) == "") {
 
 $id = $_GET['id'];
 
+$ticketExists = $db->querySelect(
+    "Checks if the given ticket exists",
+    "SELECT * 
+            FROM Ticket
+            WHERE id = '$id'
+    "
+);
+
+if (!$ticketExists->fetch_assoc()) {
+    header("HTTP/1.1 500 Internal Server Error");
+    $response['msg'] = 'Ticket does not exists';
+    echo(json_encode($response));
+    exit;
+}
+
 $updatedArrived = $db -> queryUpdate(
     "Updates arrived ticket value",
     array(
