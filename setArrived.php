@@ -27,7 +27,7 @@ $ticketExists = $db->querySelect(
 );
 
 if (!$ticketExists->fetch_assoc()) {
-    header("HTTP/1.1 500 Internal Server Error");
+    header("HTTP/1.1 412 Precondition Failed");
     $response['msg'] = 'Ticket does not exists';
     echo(json_encode($response));
     exit;
@@ -49,7 +49,7 @@ if ($updatedArrived) {
     $response['msg'] = 'Successfully arrived';
 } else {
     header("HTTP/1.1 500 Internal Server Error");
-    $response['msg'] = 'Could not update';
+    $response['msg'] = 'Could not update ticket: ' . $id;
 }
 
 echo(json_encode($response));
