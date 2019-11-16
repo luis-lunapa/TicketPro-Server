@@ -18,7 +18,7 @@ $ticketImage = imagecreatefrompng('resources/ticket.png');
 imagealphablending($ticketImage, false);
 imagesavealpha($ticketImage, true);
 
-$done = imagecopymerge($ticketImage, $ticketCode, 100, 761, 0, 0, 250, 40, 100);
+$done = imagecopymerge($ticketImage, $ticketCode, 140, 759, 0, 0, 250, 40, 100);
 
 if ($done) {
 
