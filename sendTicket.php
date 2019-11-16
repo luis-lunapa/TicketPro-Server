@@ -24,10 +24,10 @@ foreach($response as $invitee) {
     $name = $invitee['name'];
     $arrived = $invitee['arrived'];
     $email = $invitee['email'];
-    $ticketSent = $invitee['ticketSent'];
+    $ticketGenerated = $invitee['ticketGenerated'];
 
 
-    if (!$ticketSent) {
+    if (!$ticketGenerated) {
 
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $saveto = "generatedTickets/N" . $id . ".png";
@@ -49,6 +49,16 @@ foreach($response as $invitee) {
 <img src=\"$imageFileRoute\">
 </body>";
 
+        $updated = $db -> queryInsert(
+                "Updates the ticket sent value",
+                array(
+                    "UPDATE Ticket
+                    SET ticketGenerated = 1
+                    WHERE id = $id
+
+                    ")
+            );
+
 
 //$success = mail($email_to, $email_subject , $message,$headers);
 //
@@ -64,7 +74,7 @@ foreach($response as $invitee) {
 //                "Updates the ticket sent value",
 //                array(
 //                    "UPDATE Ticket
-//                    SET ticketSent = 1
+//                    SET ticketGenerated = 1
 //                    WHERE id = $id
 //
 //                    ")
