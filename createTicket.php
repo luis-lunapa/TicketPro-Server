@@ -11,7 +11,8 @@ if (isset($_GET['debug'])) {
 
 
 $data = json_validate(file_get_contents('php://input'));
-foreach($data as $invitee) {
+$responseArray = $data["response"];
+foreach($responseArray as $invitee) {
     $id = $invitee['id'];
     $name = $invitee['name'];
     $arrived = $invitee['arrived'];
