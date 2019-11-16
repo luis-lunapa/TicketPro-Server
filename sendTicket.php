@@ -27,7 +27,7 @@ foreach($response as $invitee) {
     $ticketGenerated = $invitee['ticketGenerated'];
 
 
-    if (!$ticketGenerated) {
+    if (!$ticketGenerated || $ticketGenerated) {
 
         $generateTicketAPI = "generateTicket.php?id=" . $id;
         $saveto = "generatedTickets/N" . $id . ".png";
