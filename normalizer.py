@@ -21,7 +21,7 @@ with open("1.Guest.Original.json") as json_file:
             counter += 1
             name = email.split("@")[0]
             ticketDict = {
-                    "id": employee,
+                    "id": employee.replace(" ", ""),
                     "name": name,
                     "arrived": "0",
                     "email": email,
