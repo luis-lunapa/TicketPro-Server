@@ -84,7 +84,7 @@ foreach($response as $invitee) {
 
 
     } else {
-        echo "Ticket already sent to: " . $email;
+        echo "Ticket already generated for: " . $email;
     }
 
 
