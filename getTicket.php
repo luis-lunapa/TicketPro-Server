@@ -46,11 +46,15 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
     );
 
     while ($row = $ticket->fetch_assoc()) {
+        $arrived = false;
+        if ($row['arrived'] == '1') {
+            $arrived = true;
+        }
         array_push($response, array(
 
                 'id' => $row['id'],
                 'name' => $row['name'],
-                'arrived' => $row['arrived'],
+                'arrived' => $arrived,
                 'email' => $row['email'],
                 'ticketSent' => $row['ticketSent'],
                 'ticketGenerated' => $row['ticketGenerated']
@@ -76,10 +80,14 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
     );
 
     while ($row = $ticket->fetch_assoc()) {
+        $arrived = false;
+        if ($row['arrived'] == '1') {
+            $arrived = true;
+        }
         array_push($response, array(
                 'id' => $row['id'],
                 'name' => $row['name'],
-                'arrived' => $row['arrived'],
+                'arrived' => $arrived,
                 'email' => $row['email'],
                 'ticketSent' => $row['ticketSent'],
                 'ticketGenerated' => $row['ticketGenerated']
@@ -103,10 +111,14 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
     );
 
     while ($row = $tickets->fetch_assoc()) {
+        $arrived = false;
+        if ($row['arrived'] == '1') {
+            $arrived = true;
+        }
         array_push($response, array(
                 'id' => $row['id'],
                 'name' => $row['name'],
-                'arrived' => $row['arrived'],
+                'arrived' => $arrived,
                 'email' => $row['email'],
                 'ticketSent' => $row['ticketSent'],
                 'ticketGenerated' => $row['ticketGenerated']
