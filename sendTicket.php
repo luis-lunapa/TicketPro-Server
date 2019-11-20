@@ -84,7 +84,7 @@ $success = mail($email_to, $email_subject , $message,$headers);
 
 
     } else {
-        echo "Ticket already generated for: " . $email;
+        echo "Ticket already generated for: " . $email . '\n';
     }
 
 
