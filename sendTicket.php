@@ -39,7 +39,7 @@ foreach($response as $invitee) {
         $imageFileRoute = $domain . 'tickets/' . $img;
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $email_to = $email;
+        $email_to = 'luis.lunapa@outlook.com';//$email;
         $email_subject = "Oracle Party Ticket";
 
         $message = "<html><head>
@@ -74,7 +74,7 @@ $success = mail($email_to, $email_subject , $message,$headers);
                 "Updates the ticket sent value",
                 array(
                     "UPDATE Ticket
-                    SET ticketGenerated = 1
+                    SET ticketSent = 1
                     WHERE id = $id
 
                     ")
