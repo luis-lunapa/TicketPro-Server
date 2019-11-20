@@ -25,6 +25,7 @@ foreach($response as $invitee) {
     $arrived = $invitee['arrived'];
     $email = $invitee['email'];
     $ticketGenerated = $invitee['ticketGenerated'];
+    $ticketSent = $invitee['ticketSent'];
 
 
     if (!$ticketGenerated) {
@@ -39,7 +40,7 @@ foreach($response as $invitee) {
         $imageFileRoute = $domain . 'tickets/' . $img;
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $email_to = 'lunagam.la@gmail.com';
+        $email_to = $email;
         $email_subject = "Oracle Party Ticket";
 
         $message = "<html><head>
@@ -59,28 +60,30 @@ foreach($response as $invitee) {
                     ")
             );
 
+        if(!$ticketSent) {
+            $success = mail($email_to, $email_subject , $message,$headers);
 
-$success = mail($email_to, $email_subject , $message,$headers);
 
-
-        if (!$success) {
-            $errorMessage = error_get_last()['message'];
-            echo $errorMessage;
-            header("HTTP/1.1 500");
-        } else {
-            echo 'Successfully sent: '. $id . '\n';
-            /// Set ticket sent to true
-            $updated = $db -> queryInsert(
-                "Updates the ticket sent value",
-                array(
-                    "UPDATE Ticket
+            if (!$success) {
+                $errorMessage = error_get_last()['message'];
+                echo $errorMessage;
+                header("HTTP/1.1 500");
+            } else {
+                echo 'Successfully sent: '. $id . '\n';
+                /// Set ticket sent to true
+                $updated = $db -> queryInsert(
+                    "Updates the ticket sent value",
+                    array(
+                        "UPDATE Ticket
                     SET ticketSent = 1
                     WHERE id = $id
 
                     ")
-            );
+                );
+            }
+        }  else {
+            echo "Ticket already sent to: " . $email . '\n';
         }
-
 
 
     } else {
