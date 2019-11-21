@@ -22,6 +22,14 @@ foreach($response as $invitee) {
     $id = $invitee['id'];
     $email = $invitee['email'];
     $urlSent = $invitee['urlSent'];
+    
+    if($urlSent) {
+        array_push($urlResponse, array(
+            "sent" => true,
+            "alreadySent" => $id
+        ));
+        continue;
+    }
 
     $url = $domain . "tickets/ticket.php?id=$id";
 
