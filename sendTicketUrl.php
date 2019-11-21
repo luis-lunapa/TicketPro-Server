@@ -56,7 +56,6 @@ foreach($response as $invitee) {
             'auth' => true,
             'username' => $username,
             'password' => $password));
-    $smtp->isHTML(true);
 
    // $success = mail($email_to, $email_subject , $message, $headers);
     $mail = $smtp->send($email_to, $headers, $message);
