@@ -1,5 +1,6 @@
 <?php
 require_once('header.php');
+require_once('Mail.php');
 
 if (isset($_GET['debug'])) {
     ini_set('display_errors', 1);
@@ -25,6 +26,16 @@ foreach($response as $invitee) {
     array_push($urlResponse, array(
         "url" => $url
     ));
+
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $email_to = "luis.g.pena@oracle.com";
+    $email_subject = "Oracle Party Ticket Link";
+    $message = "<h1>En el siguiente link podrás descargar tu ticket en caso de no haberlo recibido</h1>
+<a href='$url'>Obtener Ticket</a>
+";
+
+    $success = mail($email_to, $email_subject , $message, $headers);
+    exit;
 
 }
 
