@@ -50,6 +50,7 @@ foreach($response as $invitee) {
     $password = "Welcome1";
     $smtp = Mail::factory('smtp',
         array ('host' => $host,
+            'port' => $port,
             'auth' => true,
             'username' => $username,
             'password' => $password));
