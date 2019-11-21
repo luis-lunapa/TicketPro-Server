@@ -26,7 +26,7 @@ foreach($response as $invitee) {
     $name = $invitee['name'];
     $urlSent = $invitee['urlSent'];
 
-    if(!$urlSent && $count < 60) {
+    if(!$urlSent && $count < 30) {
         $count += 1;
 
 
