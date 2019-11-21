@@ -56,7 +56,7 @@ foreach($response as $invitee) {
             'password' => $password));
 
    // $success = mail($email_to, $email_subject , $message, $headers);
-    $mail = $smtp->send($email_to, $headers, $message);
+    $mail = $smtp->send($email_to, $headers, $url);
     if (PEAR::isError($mail)) {
         echo("<p>" . $mail->getMessage() . "</p>");
     } else {
