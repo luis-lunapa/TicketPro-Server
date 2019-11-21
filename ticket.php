@@ -9,4 +9,5 @@ $idTicket = $_GET['id'];
 $ticketImg = imagecreatefrompng("generatedTickets/TO" . $idTicket . ".png");
 
 header('Content-Type: image/png');
+header('Title: Oracle Ticket');
 imagepng($ticketImg);

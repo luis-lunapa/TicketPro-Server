@@ -58,22 +58,6 @@ foreach($response as $invitee) {
                     ")
             );
 
-
-            if ($updated) {
-                array_push($urlResponse, array(
-                    "sent" => true,
-                    "url" => $url
-                ));
-
-            } else {
-                array_push($urlResponse, array(
-                    "sent" => false,
-                    "queryError" => true,
-                    "url" => $url
-                ));
-            }
-
-
         } else {
             array_push($urlResponse, array(
                 "sent" => false,
