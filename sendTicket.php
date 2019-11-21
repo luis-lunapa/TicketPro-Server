@@ -61,7 +61,7 @@ foreach($response as $invitee) {
             );
 
         if(!$ticketSent) {
-            $success = mail($email_to, $email_subject , $message,$headers);
+            $success = true;//mail($email_to, $email_subject , $message,$headers);
 
 
             if (!$success) {
