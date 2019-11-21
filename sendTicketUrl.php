@@ -16,8 +16,16 @@ curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
 $raw=curl_exec($ch);
 
 $response = json_decode($raw, true);
+$urlResponse = array();
 foreach($response as $invitee) {
     $id = $invitee['id'];
+    $email = $invitee['email'];
+
     $url = $domain . "tickets/ticket.php?id=$id";
-    echo $url;
+    array_push($urlResponse, array(
+        "url" => $url
+    ));
+
 }
+
+echo(json_encode($response));
