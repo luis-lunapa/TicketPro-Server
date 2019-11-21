@@ -66,6 +66,7 @@ foreach($response as $invitee) {
                 "sent" => false,
                 "url" => $url,
                 "emailError" => true,
+                'errorMessage' => error_get_last()['message']
             ));
         }
     }
