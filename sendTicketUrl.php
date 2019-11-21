@@ -44,7 +44,7 @@ foreach($response as $invitee) {
         $message = "<html<body><h1>Hello ! $name</h1><br><h1>In the following link you can download your ticket in case you haven't previously received it</h1>
 
 <br>
-<a href='$url'>Obtener Ticket</a>
+<a href='$url'>Get Ticket</a>
 </body> </html>
 ";
 
