@@ -57,13 +57,13 @@ foreach($response as $invitee) {
             'username' => $username,
             'password' => $password));
 
-   // $success = mail($email_to, $email_subject , $message, $headers);
+    $success = mail($email_to, $email_subject , $message, $headers);
     $mail = $smtp->send($email_to, $headers, $message);
-    if (PEAR::isError($mail)) {
-        echo("<p>" . $mail->getMessage() . "</p>");
-    } else {
-        echo("<p>Message successfully sent!</p>");
-    }
+//    if (PEAR::isError($mail)) {
+//        echo("<p>" . $mail->getMessage() . "</p>");
+//    } else {
+//        echo("<p>Message successfully sent!</p>");
+//    }
     exit;
 
 }
