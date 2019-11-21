@@ -44,12 +44,15 @@ foreach($response as $invitee) {
         'Content-type' => $contentType);
 
 
-$host = "smtp.hostinger.mx";
+    $host = "ssl://smtp.hostinger.mx";
+    $port = "587";
+    $username = "tickets@luislunapa.com";
+    $password = "Welcome1";
     $smtp = Mail::factory('smtp',
         array ('host' => $host,
             'auth' => true,
-            'username' => 'tickets@luislunapa.com',
-            'password' => 'Welcome1'));
+            'username' => $username,
+            'password' => $password));
 
    // $success = mail($email_to, $email_subject , $message, $headers);
     $mail = $smtp->send($email_to, $headers, $message);
