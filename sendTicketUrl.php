@@ -53,6 +53,8 @@ foreach($response as $invitee) {
 
                     ")
         );
+
+
         if ($updated) {
             array_push($urlResponse, array(
                 "sent" => true,
