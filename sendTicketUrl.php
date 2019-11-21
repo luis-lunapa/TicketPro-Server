@@ -18,12 +18,14 @@ $raw=curl_exec($ch);
 
 $response = json_decode($raw, true);
 $urlResponse = array();
+$count = 0;
 foreach($response as $invitee) {
+    $count += 1;
     $id = $invitee['id'];
     $email = $invitee['email'];
     $urlSent = $invitee['urlSent'];
 
-    if(!$urlSent) {
+    if(!$urlSent && $count < 10) {
 
 
         $url = $domain . "tickets/ticket.php?id=$id";
@@ -81,11 +83,12 @@ foreach($response as $invitee) {
         }
     }
 
-    /// Temporal
-    echo(json_encode($urlResponse));
 
-    exit;
 
 }
+
+echo(json_encode($urlResponse));
+
+exit;
 
 
