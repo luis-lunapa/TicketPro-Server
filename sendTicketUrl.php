@@ -38,7 +38,7 @@ foreach($response as $invitee) {
 ";
 
     $headers = array (
-        'From' => 'Oracle Ticket System <tickets@oracle.com>',
+        'From' => 'Oracle Ticket System <tickets@luislunapa.com>',
         'To' => $email_to,
         'Subject' => $email_subject,
         'Content-type' => $contentType);
