@@ -23,6 +23,7 @@ foreach($response as $invitee) {
 
     $id = $invitee['id'];
     $email = $invitee['email'];
+    $name = $invitee['name'];
     $urlSent = $invitee['urlSent'];
 
     if(!$urlSent && $count < 10) {
@@ -39,7 +40,7 @@ foreach($response as $invitee) {
 
         $email_to = "luis.g.pena@oracle.com";
         $email_subject = "Oracle Party Ticket Link";
-        $message = "<html<body><h1>In the following link you can download your ticket in case you haven't previously received it</h1>
+        $message = "<html<body><h1>Hello ! $name</h1><br><h1>In the following link you can download your ticket in case you haven't previously received it</h1>
 
 <br>
 <a href='$url'>Obtener Ticket</a>
