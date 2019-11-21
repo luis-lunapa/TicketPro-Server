@@ -38,7 +38,7 @@ $host = "smtp.hostinger.mx";
     $smtp = Mail::factory('smtp',
         array ('host' => $host,
             'auth' => true,
-            'username' => 'tickets',
+            'username' => 'tickets@luislunapa.com',
             'password' => 'Welcome1'));
 
    // $success = mail($email_to, $email_subject , $message, $headers);
