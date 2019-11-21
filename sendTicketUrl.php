@@ -34,8 +34,20 @@ foreach($response as $invitee) {
 <br>
 <a href='$url'>Obtener Ticket</a>
 ";
+$host = "smtp.hostinger.mx";
+    $smtp = Mail::factory('smtp',
+        array ('host' => $host,
+            'auth' => true,
+            'username' => 'tickets',
+            'password' => 'Welcome1'));
 
-    $success = mail($email_to, $email_subject , $message, $headers);
+   // $success = mail($email_to, $email_subject , $message, $headers);
+    $mail = $smtp->send($email_to, $headers, $message);
+    if (PEAR::isError($mail)) {
+        echo("<p>" . $mail->getMessage() . "</p>");
+    } else {
+        echo("<p>Message successfully sent!</p>");
+    }
     exit;
 
 }
