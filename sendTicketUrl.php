@@ -62,13 +62,17 @@ foreach($response as $invitee) {
         } else {
             array_push($urlResponse, array(
                 "sent" => false,
+                "queryError" => true,
                 "url" => $url
             ));
         }
+
+
     } else {
         array_push($urlResponse, array(
             "sent" => false,
-            "url" => $url
+            "url" => $url,
+            "emailError" => true,
         ));
     }
 
