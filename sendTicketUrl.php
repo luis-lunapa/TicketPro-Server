@@ -23,11 +23,15 @@ foreach($response as $invitee) {
     $email = $invitee['email'];
 
     $url = $domain . "tickets/ticket.php?id=$id";
+
     array_push($urlResponse, array(
         "url" => $url
     ));
 
-    $contentType .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $email_to = $email;
+    $email_subject = "Oracle Party Ticket";
 
     $email_to = "luis.g.pena@oracle.com";
     $email_subject = "Oracle Party Ticket Link";
@@ -38,32 +42,10 @@ foreach($response as $invitee) {
 </body> </html>
 ";
 
-    $headers = array (
-        'MIME-Version' => '1.0rn',
-        'From' => 'Oracle Ticket System <tickets@luislunapa.com>',
-        'To' => $email_to,
-        'Subject' => $email_subject,
-        'Content-type' => $contentType);
 
-
-    $host = "smtp.hostinger.mx";
-    $port = "587";
-    $username = "tickets@luislunapa.com";
-    $password = "Welcome1";
-    $smtp = Mail::factory('smtp',
-        array ('host' => $host,
-            'port' => $port,
-            'auth' => true,
-            'username' => $username,
-            'password' => $password));
 
     $success = mail($email_to, $email_subject , $message, $headers);
-    $mail = $smtp->send($email_to, $headers, $message);
-//    if (PEAR::isError($mail)) {
-//        echo("<p>" . $mail->getMessage() . "</p>");
-//    } else {
-//        echo("<p>Message successfully sent!</p>");
-//    }
+
     exit;
 
 }
