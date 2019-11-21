@@ -39,7 +39,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         t.arrived,
         t.email,
         t.ticketSent,
-        t.ticketGenerated
+        t.ticketGenerated,
+        t.urlSent
         FROM Ticket t
         WHERE t.id = $idTicket
         "
@@ -57,7 +58,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
                 'arrived' => $arrived,
                 'email' => $row['email'],
                 'ticketSent' => $row['ticketSent'],
-                'ticketGenerated' => $row['ticketGenerated']
+                'ticketGenerated' => $row['ticketGenerated'],
+                'urlSent' => $row['urlSent']
             )
         );
     }
@@ -73,7 +75,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         t.arrived,
         t.email,
         t.ticketSent,
-        t.ticketGenerated
+        t.ticketGenerated,
+        t.urlSent
         FROM Ticket t
         WHERE t.name LIKE '%$nameTicket%'
         "
@@ -90,7 +93,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
                 'arrived' => $arrived,
                 'email' => $row['email'],
                 'ticketSent' => $row['ticketSent'],
-                'ticketGenerated' => $row['ticketGenerated']
+                'ticketGenerated' => $row['ticketGenerated'],
+                'urlSent' => $row['urlSent']
             )
         );
     }
@@ -104,7 +108,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         t.arrived,
         t.email,
         t.ticketSent,
-        t.ticketGenerated
+        t.ticketGenerated,
+        t.urlSent
         FROM Ticket t
 
         "
@@ -121,7 +126,8 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
                 'arrived' => $arrived,
                 'email' => $row['email'],
                 'ticketSent' => $row['ticketSent'],
-                'ticketGenerated' => $row['ticketGenerated']
+                'ticketGenerated' => $row['ticketGenerated'],
+                'urlSent' => $row['urlSent']
             )
         );
     }

@@ -21,6 +21,7 @@ $urlResponse = array();
 foreach($response as $invitee) {
     $id = $invitee['id'];
     $email = $invitee['email'];
+    $urlSent = $invitee['urlSent'];
 
     $url = $domain . "tickets/ticket.php?id=$id";
 
