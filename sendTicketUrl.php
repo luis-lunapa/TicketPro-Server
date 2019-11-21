@@ -20,12 +20,13 @@ $response = json_decode($raw, true);
 $urlResponse = array();
 $count = 0;
 foreach($response as $invitee) {
-    $count += 1;
+
     $id = $invitee['id'];
     $email = $invitee['email'];
     $urlSent = $invitee['urlSent'];
 
     if(!$urlSent && $count < 10) {
+        $count += 1;
 
 
         $url = $domain . "tickets/ticket.php?id=$id";
