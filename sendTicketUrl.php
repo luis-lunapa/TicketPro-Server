@@ -24,9 +24,7 @@ foreach($response as $invitee) {
 
     $url = $domain . "tickets/ticket.php?id=$id";
 
-    array_push($urlResponse, array(
-        "url" => $url
-    ));
+
 
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -45,9 +43,39 @@ foreach($response as $invitee) {
 
 
     $success = mail($email_to, $email_subject , $message, $headers);
+    if ($success) {
+        $updated = $db -> queryInsert(
+            "Updates the ticket sent value",
+            array(
+                "UPDATE Ticket
+                    SET urlSent = 1
+                    WHERE id = $id
+
+                    ")
+        );
+        if ($updated) {
+            array_push($urlResponse, array(
+                "sent" => true,
+                "url" => $url
+            ));
+
+        } else {
+            array_push($urlResponse, array(
+                "sent" => false,
+                "url" => $url
+            ));
+        }
+    } else {
+        array_push($urlResponse, array(
+            "sent" => false,
+            "url" => $url
+        ));
+    }
+
+    echo(json_encode($urlResponse));
 
     exit;
 
 }
 
-echo(json_encode($urlResponse));
+
