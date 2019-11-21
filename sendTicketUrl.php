@@ -27,13 +27,23 @@ foreach($response as $invitee) {
         "url" => $url
     ));
 
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $contentType .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
     $email_to = "luis.g.pena@oracle.com";
     $email_subject = "Oracle Party Ticket Link";
     $message = "<h1>En el siguiente link podras descargar tu ticket en caso de no haberlo recibido</h1>
+
 <br>
 <a href='$url'>Obtener Ticket</a>
 ";
+
+    $headers = array (
+        'From' => 'Oracle Ticket System <tickets@oracle.com>',
+        'To' => $email_to,
+        'Subject' => $email_subject,
+        'Content-type' => $contentType);
+
+
 $host = "smtp.hostinger.mx";
     $smtp = Mail::factory('smtp',
         array ('host' => $host,
