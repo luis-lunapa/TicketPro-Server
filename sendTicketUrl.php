@@ -44,7 +44,7 @@ foreach($response as $invitee) {
         'Content-type' => $contentType);
 
 
-    $host = "ssl://smtp.hostinger.mx";
+    $host = "smtp.hostinger.mx";
     $port = "587";
     $username = "tickets@luislunapa.com";
     $password = "Welcome1";
