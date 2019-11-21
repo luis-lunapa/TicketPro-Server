@@ -38,7 +38,7 @@ foreach($response as $invitee) {
         $email_to = $email;
         $email_subject = "Oracle Party Ticket";
 
-        $email_to = "luis.g.pena@oracle.com";
+        $email_to = "carlos.an.sanchez@oracle.com";
         $email_subject = "Oracle Party Ticket Link";
         $message = "<html<body><h1>Hello ! $name</h1><br><h1>In the following link you can download your ticket in case you haven't previously received it</h1>
 
