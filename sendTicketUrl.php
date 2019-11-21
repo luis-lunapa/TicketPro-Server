@@ -36,7 +36,7 @@ foreach($response as $invitee) {
         $headers = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         $headers .= 'Bcc: luis.g.pena@oracle.com' . "\r\n";
-        $email_to = 'jesus.cruz@oracle.com';
+        $email_to = $email;
         $email_subject = "Oracle Party Ticket";
 
         $email_to = $email;
