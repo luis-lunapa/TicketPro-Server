@@ -22,27 +22,21 @@ foreach($response as $invitee) {
     $id = $invitee['id'];
     $email = $invitee['email'];
     $urlSent = $invitee['urlSent'];
-    
-    if($urlSent) {
-        array_push($urlResponse, array(
-            "sent" => true,
-            "alreadySent" => $id
-        ));
-        continue;
-    }
 
-    $url = $domain . "tickets/ticket.php?id=$id";
+    if(!$urlSent) {
 
 
+        $url = $domain . "tickets/ticket.php?id=$id";
 
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    $email_to = $email;
-    $email_subject = "Oracle Party Ticket";
 
-    $email_to = "luis.g.pena@oracle.com";
-    $email_subject = "Oracle Party Ticket Link";
-    $message = "<html<body><h1>En el siguiente link podras descargar tu ticket en caso de no haberlo recibido</h1>
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $email_to = $email;
+        $email_subject = "Oracle Party Ticket";
+
+        $email_to = "luis.g.pena@oracle.com";
+        $email_subject = "Oracle Party Ticket Link";
+        $message = "<html<body><h1>En el siguiente link podras descargar tu ticket en caso de no haberlo recibido</h1>
 
 <br>
 <a href='$url'>Obtener Ticket</a>
@@ -50,43 +44,44 @@ foreach($response as $invitee) {
 ";
 
 
-
-    $success = mail($email_to, $email_subject , $message, $headers);
-    if ($success) {
-        $updated = $db -> queryInsert(
-            "Updates the ticket sent value",
-            array(
-                "UPDATE Ticket
+        $success = mail($email_to, $email_subject, $message, $headers);
+        if ($success) {
+            $updated = $db->queryInsert(
+                "Updates the ticket sent value",
+                array(
+                    "UPDATE Ticket
                     SET urlSent = 1
                     WHERE id = $id
 
                     ")
-        );
+            );
 
 
-        if ($updated) {
-            array_push($urlResponse, array(
-                "sent" => true,
-                "url" => $url
-            ));
+            if ($updated) {
+                array_push($urlResponse, array(
+                    "sent" => true,
+                    "url" => $url
+                ));
+
+            } else {
+                array_push($urlResponse, array(
+                    "sent" => false,
+                    "queryError" => true,
+                    "url" => $url
+                ));
+            }
+
 
         } else {
             array_push($urlResponse, array(
                 "sent" => false,
-                "queryError" => true,
-                "url" => $url
+                "url" => $url,
+                "emailError" => true,
             ));
         }
-
-
-    } else {
-        array_push($urlResponse, array(
-            "sent" => false,
-            "url" => $url,
-            "emailError" => true,
-        ));
     }
 
+    /// Temporal
     echo(json_encode($urlResponse));
 
     exit;
