@@ -31,13 +31,15 @@ foreach($response as $invitee) {
 
     $email_to = "luis.g.pena@oracle.com";
     $email_subject = "Oracle Party Ticket Link";
-    $message = "<h1>En el siguiente link podras descargar tu ticket en caso de no haberlo recibido</h1>
+    $message = "<html<body><h1>En el siguiente link podras descargar tu ticket en caso de no haberlo recibido</h1>
 
 <br>
 <a href='$url'>Obtener Ticket</a>
+</body> </html>
 ";
 
     $headers = array (
+        'MIME-Version' => '1.0rn',
         'From' => 'Oracle Ticket System <tickets@luislunapa.com>',
         'To' => $email_to,
         'Subject' => $email_subject,
