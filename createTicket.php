@@ -28,11 +28,7 @@ foreach($responseArray as $invitee) {
                 ('$id', '$name', $arrived, '$email')
         ")
     );
-    if ($insertQuery) {
-        header("HTTP/1.1 200 OK");
-    } else {
-        header("HTTP/1.1 500 Internal Server Error");
-    }
+    header("HTTP/1.1 200 OK");
 }
 
 function json_validate($string) {

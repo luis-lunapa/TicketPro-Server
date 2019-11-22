@@ -42,7 +42,7 @@ if (isset($_GET['id']) && trim($_GET['id']) != "") {
         t.ticketGenerated,
         t.urlSent
         FROM Ticket t
-        WHERE t.id = $idTicket
+        WHERE t.id = '$idTicket'
         "
     );
 
