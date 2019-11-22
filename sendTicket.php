@@ -76,7 +76,7 @@ foreach($response as $invitee) {
                     array(
                         "UPDATE Ticket
                     SET ticketSent = 1
-                    WHERE id = $id
+                    WHERE id = '$id'
 
                     ")
                 );
