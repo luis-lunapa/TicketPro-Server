@@ -28,3 +28,4 @@ if ($row = $countQuery->fetch_assoc()) {
     );
 }
 
+echo(json_encode($response));
