@@ -24,7 +24,7 @@ $countQuery = $db->querySelect(
 
 if ($row = $countQuery->fetch_assoc()) {
     $response = array (
-        "Arrived" => $row["count"]
+        "Arrived" => $row["count(*)"]
     );
 }
 
