@@ -38,7 +38,7 @@ $updatedArrived = $db -> queryUpdate(
     array(
         "UPDATE Ticket
             SET arrived = 1
-            WHERE id = $id
+            WHERE id = '$id'
                     
                     ")
 );
