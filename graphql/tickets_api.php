@@ -8,7 +8,6 @@ error_reporting(E_ALL);
 
 require "graphql-php/autoload.php";
 require "../header.php";
-require "DB.php";
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQl\Type\Definition\Type;
