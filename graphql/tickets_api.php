@@ -40,7 +40,7 @@ try {
     $queryType = new ObjectType([
        'name' => 'Tickets',
         'fields' => [
-            'total' => Type::listOf($ticketsCount),
+            'total' => Type::listOf($ticket),
             'args' => [
                 'id' => Type::listOf(Type::string()),
                 'name' => Type::listOf(Type::string()),
