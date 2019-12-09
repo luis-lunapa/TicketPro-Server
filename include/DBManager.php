@@ -21,7 +21,7 @@ class DBManager {
 
     private $conn; //Conexion con db
 
-    public function DBManager() {
+    public function __construct() {
         if (!isset($this->conn)) {
             $this->conn = mysqli_connect($this->host, $this->user, $this->password, $this->db);
             if ($this->conn->connect_error) {
