@@ -94,9 +94,8 @@ try {
     ]);
 
     $rawinput = file_get_contents('php://input');
-    $input = json_decode($rawinput);
-
-    print_r($input);
+    $input = json_decode($rawinput, true);
+    
 
     $query = $input["query"];
 
