@@ -15,6 +15,7 @@ use GraphQL\Type\Schema;
 use GraphQL\GraphQL;
 
 try {
+    $db = new DBManager();
     // Object Definitions
 
     $ticketsCount = new ObjectType([
