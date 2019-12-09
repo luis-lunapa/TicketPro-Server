@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 
 
 require "graphql-php/autoload.php";
-require "../header.php";
+include "../header.php";
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQl\Type\Definition\Type;
@@ -17,9 +17,77 @@ use GraphQL\GraphQL;
 try {
     // Object Definitions
 
+    $ticketsCount = new ObjectType([
+        'name' => 'ticketCount',
+        'fields' => [
+            'count' => ['type' => Type::INT]
+        ]
+    ]);
+
+    $ticket = new ObjectType([
+        'name' => 'ticket',
+        'fields' => [
+            'id' => ['type' => Type::STRING],
+            'name' => ['type' => Type::STRING],
+            'arrived' => ['type' => Type::BOOLEAN],
+            'email' => ['type' => Type::STRING],
+            'ticketSent' => ['type' => Type::BOOLEAN],
+            'ticketGenerated' => ['type' => Type::BOOLEAN],
+            'urlSent' => ['type' => Type::BOOLEAN],
+        ]
+    ]);
+
+    $queryType = new ObjectType([
+       'name' => 'Tickets',
+        'fields' => [
+            'total' => Type::listOf($ticketsCount),
+            'args' => [
+                'id' => Type::listOf(Type::string()),
+                'name' => Type::listOf(Type::string()),
+                'email' => Type::listOf(Type::string())
+            ],
+
+            'resolve' => function($root, $args, $context) {
+                    $rows = array();
+                  if(isset($args['id'])) {
+                      $id = $args['id'];
+                      $ticketQueryResult = $db->querySelect(
+                          "Get id ticket",
+                          "SELECT
+                            t.id,
+                            t.name,
+                            t.arrived,
+                            t.email,
+                            t.ticketSent,
+                            t.ticketGenerated,
+                            t.urlSent
+                            FROM Ticket t
+                            WHERE t.id = '$id'
+                            "
+                      );
+
+                      while ($row = $ticketQueryResult->fetch_assoc()) {
+                          array_push($rows, array(
+
+                                  'id' => $row['id'],
+                                  'name' => $row['name'],
+                                  'arrived' => $row['arrived'],
+                                  'email' => $row['email'],
+                                  'ticketSent' => $row['ticketSent'],
+                                  'ticketGenerated' => $row['ticketGenerated'],
+                                  'urlSent' => $row['urlSent']
+                              )
+                          );
+                      }
+                      return $rows;
+                  }
+            }
+        ]
+    ]);
+
 
     $schema = new Schema([
-        'query' => 'queryType'
+        'query' => $queryType
     ]);
 
     $rawinput = file_get_contents('php://input');
