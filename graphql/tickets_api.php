@@ -24,7 +24,7 @@ try {
         ]
     ]);
 
-    $ticket = new ObjectType([
+    $ticketType = new ObjectType([
         'name' => 'ticket',
         'fields' => [
             'id' => Type::string(),
@@ -40,23 +40,21 @@ try {
     $queryType = new ObjectType([
        'name' => 'Tickets',
         'fields' => [
-            'total' => [
-                'type' => $ticketsCount,
-                'resolve' => ['count' => 4]
-            ],
-            'args' => [
-                'id' => Type::string(),
-                'name' => Type::string(),
-                'email' => Type::string()
-            ],
+            'ticket' => [
+                'type' => Type::listOf($ticketType),
+                'args' => [
+                    'id' => Type::string(),
+                    'name' => Type::string(),
+                    'email' => Type::string()
+                ],
 
-            'resolve' => function($root, $args, $context) {
+                'resolve' => function($root, $args, $context) {
                     $rows = array();
-                  if(isset($args['id'])) {
-                      $id = $args['id'];
-                      $ticketQueryResult = $db->querySelect(
-                          "Get id ticket",
-                          "SELECT
+                    if(isset($args['id'])) {
+                        $id = $args['id'];
+                        $ticketQueryResult = $db->querySelect(
+                            "Get id ticket",
+                            "SELECT
                             t.id,
                             t.name,
                             t.arrived,
@@ -67,24 +65,26 @@ try {
                             FROM Ticket t
                             WHERE t.id = '$id'
                             "
-                      );
+                        );
 
-                      while ($row = $ticketQueryResult->fetch_assoc()) {
-                          array_push($rows, array(
+                        while ($row = $ticketQueryResult->fetch_assoc()) {
+                            array_push($rows, array(
 
-                                  'id' => $row['id'],
-                                  'name' => $row['name'],
-                                  'arrived' => $row['arrived'],
-                                  'email' => $row['email'],
-                                  'ticketSent' => $row['ticketSent'],
-                                  'ticketGenerated' => $row['ticketGenerated'],
-                                  'urlSent' => $row['urlSent']
-                              )
-                          );
-                      }
-                      return $rows;
-                  }
-            }
+                                    'id' => $row['id'],
+                                    'name' => $row['name'],
+                                    'arrived' => $row['arrived'],
+                                    'email' => $row['email'],
+                                    'ticketSent' => $row['ticketSent'],
+                                    'ticketGenerated' => $row['ticketGenerated'],
+                                    'urlSent' => $row['urlSent']
+                                )
+                            );
+                        }
+                        return $rows;
+                    }
+                }
+            ]
+
         ]
     ]);
 
