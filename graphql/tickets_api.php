@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 
 
 require "graphql-php/autoload.php";
-include "../header.php";
+require_once ("../header.php");
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQl\Type\Definition\Type;
@@ -95,7 +95,7 @@ try {
 
     $rawinput = file_get_contents('php://input');
     $input = json_decode($rawinput, true);
-    
+
 
     $query = $input["query"];
 
