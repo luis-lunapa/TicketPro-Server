@@ -45,9 +45,9 @@ try {
                 'resolve' => ['count' => 4]
             ],
             'args' => [
-                'id' => Type::listOf(Type::string()),
-                'name' => Type::listOf(Type::string()),
-                'email' => Type::listOf(Type::string())
+                'id' => Type::string(),
+                'name' => Type::string(),
+                'email' => Type::string()
             ],
 
             'resolve' => function($root, $args, $context) {
