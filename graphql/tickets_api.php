@@ -20,20 +20,20 @@ try {
     $ticketsCount = new ObjectType([
         'name' => 'ticketCount',
         'fields' => [
-            'count' => ['type' => Type::INT]
+            'count' => ['type' => Type::int()]
         ]
     ]);
 
     $ticket = new ObjectType([
         'name' => 'ticket',
         'fields' => [
-            'id' => ['type' => Type::STRING],
-            'name' => ['type' => Type::STRING],
-            'arrived' => ['type' => Type::BOOLEAN],
-            'email' => ['type' => Type::STRING],
-            'ticketSent' => ['type' => Type::BOOLEAN],
-            'ticketGenerated' => ['type' => Type::BOOLEAN],
-            'urlSent' => ['type' => Type::BOOLEAN],
+            'id' => ['type' => Type::string()],
+            'name' => ['type' => Type::string()],
+            'arrived' => ['type' => Type::boolean()],
+            'email' => ['type' => Type::string()],
+            'ticketSent' => ['type' => Type::boolean()],
+            'ticketGenerated' => ['type' => Type::boolean()],
+            'urlSent' => ['type' => Type::boolean()],
         ]
     ]);
 
