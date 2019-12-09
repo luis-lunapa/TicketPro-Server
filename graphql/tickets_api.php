@@ -53,7 +53,7 @@ try {
                     $rows = array();
                     if(isset($args['id'])) {
                         $id = $args['id'];
-                        $ticketQueryResult = $db->querySelect(
+                        $ticketQueryResult = DBManager()->querySelect(
                             "Get id ticket",
                             "SELECT
                             t.id,
