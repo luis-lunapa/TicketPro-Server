@@ -81,6 +81,7 @@ try {
                                 )
                             );
                         }
+                        print_r($rows);
                         return $rows;
                     }
                 }
