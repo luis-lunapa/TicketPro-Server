@@ -27,20 +27,23 @@ try {
     $ticket = new ObjectType([
         'name' => 'ticket',
         'fields' => [
-            'id' => ['type' => Type::string()],
-            'name' => ['type' => Type::string()],
-            'arrived' => ['type' => Type::boolean()],
-            'email' => ['type' => Type::string()],
-            'ticketSent' => ['type' => Type::boolean()],
-            'ticketGenerated' => ['type' => Type::boolean()],
-            'urlSent' => ['type' => Type::boolean()],
+            'id' => Type::string(),
+            'name' => Type::string(),
+            'arrived' => Type::boolean(),
+            'email' => Type::string(),
+            'ticketSent' => Type::boolean(),
+            'ticketGenerated' => Type::boolean(),
+            'urlSent' => Type::boolean(),
         ]
     ]);
 
     $queryType = new ObjectType([
        'name' => 'Tickets',
         'fields' => [
-            'total' => Type::listOf($ticket),
+            'total' => [
+                'type' => $ticketsCount,
+                'resolve' => ['count' => 4]
+            ],
             'args' => [
                 'id' => Type::listOf(Type::string()),
                 'name' => Type::listOf(Type::string()),
