@@ -94,6 +94,7 @@ try {
         ]
     ]);
 
+    echo $queryType;
 
     $schema = new Schema([
         'query' => $queryType
