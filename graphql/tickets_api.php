@@ -14,6 +14,10 @@ use GraphQl\Type\Definition\Type;
 use GraphQL\Type\Schema;
 use GraphQL\GraphQL;
 
+use GraphQL\Error\Debug;
+
+$debug = Debug::INCLUDE_DEBUG_MESSAGE | Debug::INCLUDE_TRACE;
+
 try {
     $db = new DBManager();
     // Object Definitions
@@ -103,7 +107,7 @@ try {
 
     $variableValues = isset($input['variables']) ? $input['variables'] : null;
 
-    $result = GraphQL::executeQuery($schema, $query, null, null, $variableValues);
+    $result = GraphQL::executeQuery($schema, $query, null, null, $variableValues)->toArray(true);
 
     $output = $result->toArray();
 
